@@ -1,10 +1,10 @@
 import scala.reflect.ClassTag
 import scala.util._
 
-object Main {
+object ContextBoundTypeParam {
   class A
 
-  def constructAs[T <: A: ClassTag]: Try[T] = Try {
+  def constructAs[T <: A: ClassTag] = Try {
     new A()
   }.flatMap {
     case inst: T => Success(inst)
